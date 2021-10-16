@@ -1,77 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TODO</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <title>TODO</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <div class="nav">
-        <a class="navbar-brand" id="logo" href="#">TODO</a>
-        <a class="nav-link disabled">Logout</a>
-      </div>
-    </nav>
-    <div class="user-info">
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <div class="nav">
+      <a class="navbar-brand" id="logo" href="#">TODO</a>
+      <a class="nav-link disabled">Logout</a>
+    </div>
+  </nav>
+  <div class="user-info">
     <h1>User's Name</h1>
     <h2>To Do's</h2>
   </div>
-    <form method=“post” action=“/search”>
+ 
 
-      <label for=“todo”></label>
-      <input placeholder="what are you thinking?" name=“title” id=“todo></input>
+  <form action="/text" method="post" id="form">
+    <label for="text"></label>
+    <input placeholder="what are you thinking?" name="text" type="text" id="todo"></input>
+    <input type="submit" value="Submit">>
+  </form>
 
-
-      <div class=“bottom-of-form”>
-        <button type=“submit”>Categorize</button>
-      </div>
-    </form>
-
-    <div class="categories">
-      <div class='toWatch'>
-        <h3>To Watch</h3>
-        <ul id='toWatch'>
-          <li></li>
-        </ul>
-      </div>
-
-      <div class='toRead'>
-        <h3>To Read</h3>
-        <ul id='toRead'>
-          <li></li>
-        </ul>
-      </div>
-
-      <div class="toEat">
-        <h3>To Eat</h3>
-        <ul id='toEat'>
-          <li></li>
-        </ul>
-      </div>
-
-      <div class='toBuy'>
-        <h3>To Buy</h3>
-        <ul id='toBuy'>
-          <li></li>
-        </ul>
-      </div>
-
+  <div class="categories">
+    <div class='toWatch'>
+      <h3>To Watch</h3>
+      <ul id='toWatch'>
+        <li></li>
+      </ul>
     </div>
-  </body>
+
+    <div class='toRead'>
+      <h3>To Read</h3>
+      <ul id='toRead'>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="toEat">
+      <h3>To Eat</h3>
+      <ul id='toEat'>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class='toBuy'>
+      <h3>To Buy</h3>
+      <ul id='toBuy'>
+        <li></li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+
 </html>
