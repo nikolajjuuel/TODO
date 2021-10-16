@@ -22,35 +22,27 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+    <nav>
+      <div class="nav">
         <a class="navbar-brand" id="logo" href="#">TODO</a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link disabled">Logout</a>
-          </li>
-        </ul>
+        <a class="nav-link disabled">Logout</a>
       </div>
     </nav>
-
+    <div class="user-info">
     <h1>User's Name</h1>
     <h2>To Do's</h2>
-  
+  </div>
     <form method=“post” action=“/search”>
-  
+
       <label for=“todo”></label>
       <input placeholder="what are you thinking?" name=“title” id=“todo></input>
-  
-  
+
+
       <div class=“bottom-of-form”>
         <button type=“submit”>Categorize</button>
       </div>
     </form>
-  
+
     <div class="categories">
       <div class='toWatch'>
         <h3>To Watch</h3>
@@ -58,28 +50,28 @@
           <li></li>
         </ul>
       </div>
-  
+
       <div class='toRead'>
         <h3>To Read</h3>
         <ul id='toRead'>
           <li></li>
         </ul>
       </div>
-  
+
       <div class="toEat">
         <h3>To Eat</h3>
         <ul id='toEat'>
           <li></li>
         </ul>
       </div>
-  
+
       <div class='toBuy'>
         <h3>To Buy</h3>
         <ul id='toBuy'>
           <li></li>
         </ul>
       </div>
-  
+
     </div>
   </body>
 </html>

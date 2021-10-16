@@ -1,8 +1,10 @@
 body {
-  display: flex;
+  display:flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  padding: 2em;
 
   background: rgb(163, 208, 219);
   background: linear-gradient(
@@ -19,4 +21,27 @@ body {
 .navbar-brand {
   font-family: 'Bungee Inline', cursive;
   font-size: 2 em;
+}
+.nav {
+  display: flex;
+    justify-content: space-between;
+
+}
+nav{
+  width: 100%
+}
+h1 h2 {
+  text-align: center;
+}
+.categories {
+  display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+input {
+  margin-right: 1em;
+}
+form {
+  display: flex;
+  margin-bottom: 4em;
 }
