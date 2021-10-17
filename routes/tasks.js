@@ -11,6 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM tasks`;
+    //WHERE user id = session user id
     console.log(query);
     db.query(query)
       .then(data => {
