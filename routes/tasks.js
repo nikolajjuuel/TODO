@@ -10,7 +10,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM tasks`;
+    //console.log(req.session.user_id);
+    let query = `
+    SELECT * FROM tasks
+    WHERE user_id = ${req.session.user_id}
+    
+    `;
     //WHERE user id = session user id
     console.log(query);
     db.query(query)
