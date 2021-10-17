@@ -8,15 +8,20 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-var cookieSession = require('cookie-session')
+var cookieSession = require("cookie-session");
 
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1", "key2"],
+  })
+);
 
-
-
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2']
-}))
+app.use(function (req, res, next) {
+  console.log("req session:", req.session.userName);
+  res.locals.user = req.session.userName;
+  return next();
+});
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -29,7 +34,6 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -60,24 +64,36 @@ app.use("/api/tasks", tasksRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/login/:id', (req, res) => {
-  console.log(req.params.id)
-  
+app.get("/login/:id", (req, res) => {
   req.session.user_id = req.params.id;
-  res.redirect('/');
+
+  db.query(
+    `SELECT * FROM users
+    WHERE id = $1`,
+    [req.params.id]
+  )
+    .then((data) => {
+      console.log("data", data);
+      req.session.userName = data.rows[0].name;
+      // res.send(users);
+      res.redirect("/");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 app.get("/logout", (req, res) => {
   req.session = null;
   res.redirect("/");
-})
+});
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
 app.post("/text", (req, res) => {
-  console.log('req body',req.body)
+  console.log("req body", req.body);
 });
 
 app.listen(PORT, () => {
