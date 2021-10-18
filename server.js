@@ -124,8 +124,9 @@ app.post("/text", async (req, res) => {
     method: "get",
     url: `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent(
       text
-    )}&appid=E7VRV7-28KWR98T9A`,
+    )}&appid=${process.env.WOLFAPIKEY}`,
   };
+console.log("2222222", process.env.WOLFAPIKEY)
 
   axios(config)
     .then(function (response) {
