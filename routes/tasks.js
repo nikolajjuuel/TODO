@@ -29,28 +29,5 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-  router.post("/text", (req,res) => {
-    console.log(req.session.user_id)
-    // if(req.session.user_id === undefined){
-    //   return res.status(400).send('Need to login first')
-    // }
-
-     let id = req.session.user_id
-     let text = req.body.text.text;
-     console.log('ID', id)
-     console.log('text', text)
-     let category = 'to watch';
-     let query = `INSERT INTO tasks (title, category)
-                  VALUES ($1, $2)
-                  WHERE user_id = $3;`;
-     db.query(query,[text, category, id])
-     .then((res) => {console.log('RESULT',res.rows);
-     res.render('index')
-   })
-     .catch((err) => {console.log(err)})
-
-   })
   return router;
 };
-
-
