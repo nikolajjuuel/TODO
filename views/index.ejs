@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -17,6 +24,8 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/jquery.js"></script>
+
 
 </head>
 
@@ -24,49 +33,43 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <div class="nav">
-      <a class="navbar-brand" id="logo" href="#">TODO</a>
-      <a class="nav-link disabled" href="/logout">Logout</a>
+      <a class="navbar-brand" id="logo">TODO</a>
+      <a class="nav-link" href="/logout">Logout</a>
     </div>
   </nav>
   <div class="user-info">
-    <h1> <%=user %> </h1>
-    <h2>To Do's</h2>
+    <h1>
+      <%=user %> TODO's
+    </h1>
   </div>
 
 
   <form action="/text" method="post" id="form">
     <label for="text"></label>
     <input placeholder="what are you thinking?" name="text" type="text" id="todo"></input>
-    <input type="submit" value="Submit">>
+    <input type="submit" value="Submit">
   </form>
 
   <div class="categories">
-    <div class='toWatch'>
+    <div class='toWatch task'>
       <h3>To Watch</h3>
-      <ul id='toWatch'>
-        <li></li>
-      </ul>
+      <div id='toWatch'></div>
     </div>
 
-    <div class='toRead'>
+    <div class='toRead task'>
       <h3>To Read</h3>
-      <ul id='toRead'>
-        <li></li>
-      </ul>
+      <div id='toRead'></div>
     </div>
 
-    <div class="toEat">
+
+    <div class='toEat task'>
       <h3>To Eat</h3>
-      <ul id='toEat'>
-        <li></li>
-      </ul>
+      <div id='toEat'></div>
     </div>
 
-    <div class='toBuy'>
+    <div class='toBuy task'>
       <h3>To Buy</h3>
-      <ul id='toBuy'>
-        <li></li>
-      </ul>
+      <div id='toBuy'></div>
     </div>
 
   </div>
