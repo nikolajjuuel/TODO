@@ -1,26 +1,36 @@
+::selection {
+  color: cyan;
+  background: yellow;
+}
+
 body {
   display:flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   min-height: 100vh;
   padding: 2em;
+  font-family: 'Sora', sans-serif;
 
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  // background: rgb(163, 208, 219);
+  // background: linear-gradient(
+  //   227deg,
+  //   rgba(163, 208, 219, 1) 0%,
+  //   rgba(163, 176, 219, 1) 20%,
+  //   rgba(163, 173, 219, 1) 34%,
+  //   rgba(163, 219, 208, 1) 59%,
+  //   rgba(163, 208, 219, 1) 74%,
+  //   rgba(163, 208, 219, 1) 100%
+  // );
+  background-color: #f8dd74;
 }
 
 .navbar-brand {
   font-family: 'Bungee Inline', cursive;
-  font-size: 2 em;
+  font-size: 2em;
+  color: #d342c3;
+
 }
 .nav {
   display: flex;
@@ -44,4 +54,80 @@ input {
 form {
   display: flex;
   margin-bottom: 4em;
+}
+
+.task { 
+  width: 33%;
+}
+
+.container{
+  width: 95%;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  box-shadow: #ebc120 1px 1px 7px 0px;
+  transition: 200ms;
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+  }
+  i {
+    margin: 5px;
+  }
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  align-items: baseline;
+  transition: 200ms;
+  cursor: pointer;
+
+}
+hr{
+  margin-bottom: 0px;
+}
+.user-info{ 
+  color: #d342c3;
+  font-size: 2em;
+  font-family: 'Bungee Inline', cursive;
+
+}
+
+.edit:hover{
+  color: lightseagreen;
+}
+
+i {
+  cursor: pointer;
+}
+.fas{
+  color: #d342c3;
+}
+
+.fa-times{
+  color: black;
+  transition: 200ms;
+}
+
+.fa-times:hover {
+  color: firebrick;
+}
+
+.clicked{
+  color: white;
+  background-color: #f2cf4c6e;
+  box-shadow: #ebc120 1px 1px 7px 0px;
+  i{
+    color: white;
+  }
+  .fa-times{
+    color: white;
+  }
+  hr{
+    border-color: white;
+  }
 }

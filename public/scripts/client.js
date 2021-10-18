@@ -21,23 +21,26 @@ $(function () {
         console.log(obj.category)
         if (obj.category === 'To watch') {
             const $watch = $('#toWatch');
-            const $list = `<li>${obj.title}</li>`
-            return $watch.append($list);
+            const $task = $(`<div class="container"> <header><i class="fas fa-compact-disc"></i></i><div class="title">${obj.title}</div><i class="fas fa-times"></i></header><hr><div class="edit"><div>Change Category</div> <i class="far fa-edit"></i></div></div>`);
+
+            return $watch.append($task);
         }
         if (obj.category === 'To eat') {
             const $eat = $('#toEat');
-            const $list = `<li>${obj.title}</li>`
-            return $eat.append($list);
+            const $task = $(`<div class="container"> <header><i class="fas fa-pizza-slice"></i></i><div class="title">${obj.title}</div><i class="fas fa-times"></i></header><hr><div class="edit"><div>Change Category</div> <i class="far fa-edit"></i></div></div>`);
+            return $eat.append($task);
         }
         if (obj.category === 'To read') {
             const $read = $('#toRead');
-            const $list = `<li>${obj.title}</li>`
-            return $read.append($list);
+            const $task = $(`<div class="container"> <header><i class="fas fa-book"></i></i><div class="title">${obj.title}</div><i class="fas fa-times"></i></header><hr><div class="edit"><div>Change Category</div> <i class="far fa-edit"></i></div></div>`);
+            
+            return $read.append($task);
         }
         if (obj.category === 'To buy') {
             const $buy = $('#toBuy');
-            const $list = `<li>${obj.title}</li>`
-            return $buy.append($list);
+            const $task = $(`<div class="container"> <header><i class="fas fa-shopping-cart"></i></i><div class="title">${obj.title}</div><i class="fas fa-times"></i></header><hr><div class="edit"><div>Change Category</div> <i class="far fa-edit"></i></div></div>`);
+            
+            return $buy.append($task);
         }
 
     }
