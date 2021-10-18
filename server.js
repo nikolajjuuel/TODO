@@ -93,8 +93,25 @@ app.get("/", (req, res) => {
 });
 
 app.post("/text", (req, res) => {
-  console.log("req body", req.body);
-});
+
+  //checking to make sure someone is logged in
+  if(req.session.user_id === undefined){
+    return res.status(400).send('Need to login first')
+  }
+   const id = req.session.user_id
+   const text = req.body.text;
+   const category = 'To watch';
+
+   //Added to database
+   db.query(`
+   INSERT INTO tasks (user_id, title, category)
+   VALUES ($1, $2, $3);
+   `, [id, text, category])
+   .then((data) => {
+    res.redirect("/");
+    })
+    .catch((err) => {console.log(err)})
+  });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
