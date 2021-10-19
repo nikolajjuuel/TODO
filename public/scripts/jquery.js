@@ -31,7 +31,7 @@ $(function () {
       });
       if ($(".switch-category")) {
         $(".switch-category").on("submit", function (e) {
-          e.preventDefault();
+          e.preventDefault();//prevents refresh
           const id = $(this).attr("data-task-id"); //task id
           const newCategory = $(this)
             .find("button[type=submit]:focus")[0]
