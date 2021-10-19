@@ -1,4 +1,8 @@
 $(function () {
+  $("#submitButton").on("click", function () {
+    $("#form").css("display", "none");
+    $(".lds-ring").css("display", "inline-block");
+  });
   const checkExist = setInterval(function () {
     $(".edit").on("click", function () {
       const $options = $(".active");
