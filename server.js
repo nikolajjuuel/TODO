@@ -56,13 +56,14 @@ const usersRoutes = require("./routes/users");
 const tasksRoutes = require("./routes/tasks");
 const textRoutes = require("./routes/text");
 const deleteRoutes = require("./routes/deleteTask");
-
+const editRoutes = require("./routes/editTask");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/tasks", tasksRoutes(db));
 app.use("/text", textRoutes(db));
-app.use("/delete", deleteRoutes(db))
+app.use("/delete", deleteRoutes(db));
+app.use("/edit", editRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -100,8 +101,6 @@ app.get("/logout", (req, res) => {
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

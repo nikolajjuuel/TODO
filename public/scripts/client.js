@@ -28,21 +28,21 @@ $(function () {
             </header>
             <hr>
             <div class="categories" style="display:none">
-              <form action="/edit" method="POST">
-                <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+              <form action="/edit/${obj.id}" method="POST">
+              <button type="submit" name="category" value="To watch"><i class="fas fa-compact-disc">
                     <p>Watch</p>
                   </i></button>
-                <button type="submit" value="To read"> <i class="fas fa-book">
+                <button name="category" type="submit" value="To read"> <i class="fas fa-book">
                     <p>Read</p>
                   </i></button>
-                <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+                <button name="category" type="submit" value="To eat"><i class="fas fa-pizza-slice">
                     <p>Eat</p>
                   </i></button>
-                <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+                <button name="category" type="submit" value="To buy"><i class="fas fa-shopping-cart">
                     <p>Buy</p>
                   </i></button>
               </form>
-    
+
             </div>
             <div class="edit">
               <div>Change Category</div><i class="far fa-edit"></i>
@@ -59,21 +59,21 @@ $(function () {
             </header>
             <hr>
             <div class="categories" style="display:none">
-              <form action="/edit" method="POST">
-                <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+              <form action="/edit/${obj.id}" method="POST">
+                <button name="category" type="submit" value="To watch"><i class="fas fa-compact-disc">
                     <p>Watch</p>
                   </i></button>
-                <button type="submit" value="To read"> <i class="fas fa-book">
+                <button name="category" type="submit" value="To read"> <i class="fas fa-book">
                     <p>Read</p>
                   </i></button>
-                <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+                <button name="category" type="submit" value="To eat"><i class="fas fa-pizza-slice">
                     <p>Eat</p>
                   </i></button>
-                <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+                <button name="category" type="submit" value="To buy"><i class="fas fa-shopping-cart">
                     <p>Buy</p>
                   </i></button>
               </form>
-    
+
             </div>
             <div class="edit">
               <div>Change Category</div><i class="far fa-edit"></i>
@@ -89,21 +89,21 @@ $(function () {
             </header>
             <hr>
             <div class="categories" style="display:none">
-              <form action="/edit" method="POST">
-                <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+              <form action="/edit/${obj.id}" method="POST">
+                <button name="category" type="submit" value="To watch"><i class="fas fa-compact-disc">
                     <p>Watch</p>
                   </i></button>
-                <button type="submit" value="To read"> <i class="fas fa-book">
+                <button name="category" type="submit" value="To read"> <i class="fas fa-book">
                     <p>Read</p>
                   </i></button>
-                <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+                <button name="category" type="submit" value="To eat"><i class="fas fa-pizza-slice">
                     <p>Eat</p>
                   </i></button>
-                <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+                <button name="category" type="submit" value="To buy"><i class="fas fa-shopping-cart">
                     <p>Buy</p>
                   </i></button>
               </form>
-    
+
             </div>
             <div class="edit">
               <div>Change Category</div><i class="far fa-edit"></i>
@@ -120,21 +120,21 @@ $(function () {
             </header>
             <hr>
             <div class="categories" style="display:none">
-              <form action="/edit" method="POST">
-                <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+              <form action="/edit/${obj.id}" method="POST">
+                <button  name="category" id="watch-edit" name="${obj.id}" type="submit" value="To watch"><i class="fas fa-compact-disc">
                     <p>Watch</p>
                   </i></button>
-                <button type="submit" value="To read"> <i class="fas fa-book">
+                <button name="category" type="submit" value="To read"> <i class="fas fa-book">
                     <p>Read</p>
                   </i></button>
-                <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+                <button name="category" type="submit" value="To eat"><i class="fas fa-pizza-slice">
                     <p>Eat</p>
                   </i></button>
-                <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+                <button name="category" type="submit" value="To buy"><i class="fas fa-shopping-cart">
                     <p>Buy</p>
                   </i></button>
               </form>
-    
+
             </div>
             <div class="edit">
               <div>Change Category</div><i class="far fa-edit"></i>
