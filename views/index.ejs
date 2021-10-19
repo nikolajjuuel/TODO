@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/loader.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -47,8 +48,10 @@
   <form action="/text" method="post" id="form">
     <label for="text"></label>
     <input required placeholder="what are you thinking?" name="text" type="text" id="todo"></input>
-    <input type="submit" value="Post-it!">
+    <input id="submitButton" type="submit" value="Post-it!">
   </form>
+
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 
   <div class="categories">
     <div class='toWatch task'>
