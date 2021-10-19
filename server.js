@@ -10,8 +10,6 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 var cookieSession = require("cookie-session");
 // Required for API call
-var axios = require("axios");
-var convert = require("xml-js");
 
 app.use(
   cookieSession({
@@ -56,11 +54,15 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const tasksRoutes = require("./routes/tasks");
+const textRoutes = require("./routes/text");
+const deleteRoutes = require("./routes/deleteTask");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/tasks", tasksRoutes(db));
+app.use("/text", textRoutes(db));
+app.use("/delete", deleteRoutes(db))
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -69,18 +71,6 @@ app.use("/api/tasks", tasksRoutes(db));
 
 ///////////////////////////////////////////////////////////////
 /////CATEGORIZE ME FUNCTION////////////////////////////////
-
-const categorizeMe = (text) => {
-  if (text.toLowerCase().includes("food")) {
-    return "To eat";
-  } else if (text.toLowerCase().includes("movie")) {
-    return "To watch";
-  } else if (text.toLowerCase().includes("book")) {
-    return "To read";
-  }
-  return "Not categorized by wolfram";
-};
-
 
 ///////////////////////////////////////////
 app.get("/login/:id", (req, res) => {
@@ -111,102 +101,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/text", async (req, res) => {
-  //checking to make sure someone is logged in
-  if (req.session.user_id === undefined) {
-    return res.status(400).send("Need to login first");
-  }
-  const id = req.session.user_id;
-  const text = req.body.text;
-  //const category = "To watch";
-  //////////////////////////////////////////////////////////
-  let config = {
-    method: "get",
-    url: `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent(
-      text
-    )}&appid=${process.env.WOLFAPIKEY}`,
-  };
-console.log("2222222", process.env.WOLFAPIKEY)
 
-  axios(config)
-    .then(function (response) {
-      console.log("============================");
-      let answer = convert.xml2js(response.data);
-      console.log("##################################");
-      let answeredCategory = answer.elements[0].attributes.datatypes;
-      console.log("ANSWER", answeredCategory);
-      let category = categorizeMe(answeredCategory)
-      //Added to database
-  db.query(
-    `
-   INSERT INTO tasks (user_id, title, category)
-   VALUES ($1, $2, $3);
-   `,
-    [id, text, category]
-  )
-    .then((data) => {
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-  ///////////////////////////////////////////////////////////
-/////////////////////////////////////////////
-  //Added to database
-  // db.query(
-  //   `
-  //  INSERT INTO tasks (user_id, title, category)
-  //  VALUES ($1, $2, $3);
-  //  `,
-  //   [id, text, category]
-  // )
-  //   .then((data) => {
-  //     res.redirect("/");
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  /////////////////////////////////////////////////////////////////
-  //const whatToDo = req.body.text;
-
-  // var config = {
-  //   method: 'get',
-  //   url: `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent("ramen")}&appid=E7VRV7-28KWR98T9A`,
-
-  // };
-
-  // axios(config)
-  // .then(function (response) {
-  //   console.log('============================')
-  //   let answer = convert.xml2js(response.data)
-  //   console.log('##################################')
-  //   console.log('ANSWER', answer.elements[0].attributes.datatypes)
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-
-  //changing whatToDo so its readable by the openlirary API
-  // const whatToRead = whatToDo.trim().split(' ').join('+');
-
-  // axios.get(`http://openlibrary.org/search.json?title=${whatToRead}`)
-
-  // // Promise.all([promise1]).then((values) => {
-  // //   console.log(values[0].data.docs);
-  // // })
-  // .then((res) => {
-  //   console.log(res.data.docs)
-  //   });
-
-  // res.redirect("/");
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
