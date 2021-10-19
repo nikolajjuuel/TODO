@@ -65,7 +65,43 @@
     <div class='toEat task'>
       <h3>To Eat</h3>
       <div id='toEat'></div>
+      <div class="container">
+        <header><i class="fas fa-compact-disc"></i>
+          <div class="title">${obj.title}</div><a href="DELETE"><i class="fas fa-times"></i></a>
+        </header>
+        <hr>
+        <div class="categories">
+          <form action="/edit" method="POST">
+            <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+                <p>Watch</p>
+              </i></button>
+            <button type="submit" value="To read"> <i class="fas fa-book">
+                <p>Read</p>
+              </i></button>
+              <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+                <p>Eat</p>
+              </i></button>
+              <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+                  <p>Buy</p>
+                </i></button>
+          </form>
+
+        </div>
+    
+          <div class="edit" >
+            <div>Change Category</div><i class="far fa-edit"></i>
+      </div>
     </div>
+</div>
+    <!-- <div class="container">
+      <header><i class="fas fa-book"></i></i>
+        <div class="title">${obj.title}</div><a href="${obj.id}/delete"><i class="fas fa-times"></i></a>
+      </header>
+      <hr>
+      <div class="edit"><a href="${obj.id}" class="edit">
+          <div>Change Category</div><i class="far fa-edit"></i>
+        </a></div>
+    </div> -->
 
     <div class='toBuy task'>
       <h3>To Buy</h3>

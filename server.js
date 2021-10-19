@@ -132,8 +132,13 @@ console.log("2222222", process.env.WOLFAPIKEY)
     .then(function (response) {
       console.log("============================");
       let answer = convert.xml2js(response.data);
+      console.log('answer attributes', answer.elements);
+      console.log('answer elements', answer.elements)
+
       console.log("##################################");
       let answeredCategory = answer.elements[0].attributes.datatypes;
+
+      console.log('answeredCategory',answeredCategory)
       console.log("ANSWER", answeredCategory);
       let category = categorizeMe(answeredCategory)
       //Added to database
@@ -206,6 +211,18 @@ console.log("2222222", process.env.WOLFAPIKEY)
   //   });
 
   // res.redirect("/");
+});
+
+
+
+app.get("/:taskID/delete", (req, res) => {
+  const taskID = req.body;
+  console.log(db);
+  console.log(taskID)
+  
+ // delete urlDatabase[taskID];
+
+  res.send('delete');
 });
 
 app.listen(PORT, () => {

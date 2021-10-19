@@ -53,6 +53,7 @@ input {
 }
 form {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 4em;
 }
 
@@ -74,7 +75,18 @@ form {
 
   }
   i {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     margin: 5px;
+    transition: 200ms;
+  }
+  form{
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
   }
 }
 
@@ -85,6 +97,11 @@ form {
   align-items: baseline;
   transition: 200ms;
   cursor: pointer;
+  color: black;
+  background-color: none;
+  a{
+    text-decoration: none;
+  }
 
 }
 hr{
@@ -122,7 +139,8 @@ i {
   background-color: #f2cf4c6e;
   box-shadow: #ebc120 1px 1px 7px 0px;
   i{
-    color: white;
+    color: cyan;
+    transition: 200ms;
   }
   .fa-times{
     color: white;
@@ -130,4 +148,24 @@ i {
   hr{
     border-color: white;
   }
+  a{
+    color: white;
+  }
+  button{
+    color: white;
+  }
+}
+
+button {
+  padding: 0;
+    border: none;
+    background: none;
+}
+
+i:hover{
+  color:cyan;
+}
+
+p{
+  font-size: 10px;
 }
