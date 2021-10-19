@@ -3,6 +3,14 @@
   background: yellow;
 }
 
+a{
+  text-decoration: none;
+  transition: 200ms;
+}
+
+a:hover{
+  color: cyan;
+}
 body {
   display: flex;
   justify-content: center;
