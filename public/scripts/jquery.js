@@ -8,12 +8,13 @@ $(function () {
       const $options = $(".active");
       $(this).siblings(".categories").slideToggle();
     });
-
+    $(".fas").on('click', function(){
+      $(this).parent().parent().toggleClass("clicked");
+   })
     if ($(".fa-times")) {
       console.log("Exists!");
 
       $(".fa-times").on("click", function () {
-        $(this).parent().parent().toggleClass("clicked");
 
         const id = $(this).prev()[0].getAttribute("data-task-id"); //id = task id
 
