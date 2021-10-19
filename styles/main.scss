@@ -4,14 +4,14 @@
 }
 
 body {
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
   padding: 2em;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
 
   // background: rgb(163, 208, 219);
   // background: linear-gradient(
@@ -27,26 +27,38 @@ body {
 }
 
 .navbar-brand {
-  font-family: 'Bungee Inline', cursive;
+  font-family: "Bungee Inline", cursive;
   font-size: 2em;
   color: #d342c3;
-
 }
 .nav {
   display: flex;
-    justify-content: space-between;
-
+  justify-content: space-between;
 }
-nav{
-  width: 100%
+nav {
+  width: 100%;
 }
 h1 h2 {
   text-align: center;
 }
 .categories {
   display: flex;
-    justify-content: space-around;
+  justify-content: space-around;
+  width: 100%;
+
+  form {
+    margin-bottom: 0px;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 14px;
+  }
 }
 input {
   margin-right: 1em;
@@ -56,22 +68,21 @@ form {
   margin-bottom: 4em;
 }
 
-.task { 
+.task {
   width: 33%;
 }
 
-.container{
+.container {
   width: 95%;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 1em;
   box-shadow: #ebc120 1px 1px 7px 0px;
   transition: 200ms;
-  header{
+  header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-
   }
   i {
     margin: 5px;
@@ -85,30 +96,34 @@ form {
   align-items: baseline;
   transition: 200ms;
   cursor: pointer;
-
 }
-hr{
+hr {
   margin-bottom: 0px;
 }
-.user-info{ 
+.user-info {
   color: #d342c3;
   font-size: 2em;
-  font-family: 'Bungee Inline', cursive;
-
+  font-family: "Bungee Inline", cursive;
 }
 
-.edit:hover{
+.edit:hover {
   color: lightseagreen;
 }
 
 i {
   cursor: pointer;
+  transition: 200ms;
 }
-.fas{
+
+i:hover {
+  color:cyan;
+}
+
+.fas {
   color: #d342c3;
 }
 
-.fa-times{
+.fa-times {
   color: black;
   transition: 200ms;
 }
@@ -117,17 +132,23 @@ i {
   color: firebrick;
 }
 
-.clicked{
+.clicked {
   color: white;
   background-color: #f2cf4c6e;
   box-shadow: #ebc120 1px 1px 7px 0px;
-  i{
+  .main{
+    color: cyan;
+  }
+  i {
     color: white;
   }
-  .fa-times{
+  i:hover{
+    color: cyan;
+  }
+  .fa-times {
     color: white;
   }
-  hr{
+  hr {
     border-color: white;
   }
 }
