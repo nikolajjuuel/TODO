@@ -14,7 +14,7 @@ module.exports = (db) => {
     let query = `
     SELECT * FROM tasks
     WHERE user_id = ${req.session.user_id}
-
+    ORDER BY id DESC;
     `;
     //WHERE user id = session user id
     console.log(query);

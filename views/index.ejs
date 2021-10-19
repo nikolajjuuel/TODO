@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="/styles/loader.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/client.js"></script>
-  <script type="text/javascript" src="/scripts/jquery.js"></script>
+  <script type="text/javascript" src="/scripts/userTasks.js"></script>
+  <script type="text/javascript" src="/scripts/userTaskCall.js"></script>
+  <!-- <script type="text/javascript" src="/scripts/jquery.js"></script> -->
 
 
 </head>
@@ -45,8 +45,8 @@
   </div>
 
 
-  <form action="/text" method="post" id="form">
-    <label for="text"></label>
+  <form id="form">
+    <label for="todo"></label>
     <input required placeholder="what are you thinking?" name="text" type="text" id="todo"></input>
     <input id="submitButton" type="submit" value="Post-it!">
   </form>
