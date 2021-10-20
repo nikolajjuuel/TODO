@@ -58,77 +58,52 @@
 
   <div class="categories">
     <div class='toWatch task'>
-      <h3>Watch</h3>
+      <h3><i class="fas fa-compact-disc titles"></i>Watch</h3>
       <div id='toWatch'></div>
-      <!-- <div class="container">
-        <header><i class="fas fa-compact-disc"></i>
+      <div class="container">
+        <header><i class="fas fa-compact-disc main"></i>
           <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
         </header>
+        <div>
+           <img src="https://www4f.wolframalpha.com/Calculate/MSP/MSP29741f4iide7e86c6h7h000010f54268dfbb2idf?MSPStoreType=image/gif&s=6" alt="">
+        </div>
         <hr>
-        <div class="categories">
-          <form class="active" action="/edit" method="POST">
-            <button type="submit" value="To watch"><i class="fas fa-compact-disc">
+        <div class="categories" style="display:none">
+          <form class="switch-category" data-task-id=${obj.id}>
+          <button type="submit" name="To watch" value="To watch"><i class="fas fa-compact-disc">
                 <p>Watch</p>
               </i></button>
-            <button type="submit" value="To read"> <i class="fas fa-book">
+            <button name="To read" type="submit" value="To read"> <i class="fas fa-book">
                 <p>Read</p>
               </i></button>
-            <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
+            <button name="To eat" type="submit" value="To eat"><i class="fas fa-pizza-slice">
                 <p>Eat</p>
               </i></button>
-            <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
+            <button name="To buy" type="submit" value="To buy"><i class="fas fa-shopping-cart">
                 <p>Buy</p>
               </i></button>
           </form>
-
-        </div>
-
-        <div class="edit">
-          <div>Change Category</div><i class="far fa-edit"></i>
-        </div>
-      </div> -->
-
-      <!-- <div class="container">
-        <header><i class="fas fa-compact-disc"></i></i>
-          <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
-        </header>
-        <hr>
-        <div class="categories">
-          <form class="active" action="/edit" method="POST">
-            <button type="submit" value="To watch"><i class="fas fa-compact-disc">
-                <p>Watch</p>
-              </i></button>
-            <button type="submit" value="To read"> <i class="fas fa-book">
-                <p>Read</p>
-              </i></button>
-            <button type="submit" value="To eat"><i class="fas fa-pizza-slice">
-                <p>Eat</p>
-              </i></button>
-            <button type="submit" value="To buy"><i class="fas fa-shopping-cart">
-                <p>Buy</p>
-              </i></button>
-          </form>
-
+  
         </div>
         <div class="edit">
           <div>Change Category</div><i class="far fa-edit"></i>
         </div>
-      </div> -->
+      </div>
     </div>
 
     <div class='toRead task'>
-      <h3>Read</h3>
+      <h3><i class="fas fa-book titles"></i>Read</h3>
       <div id='toRead'></div>
     </div>
 
 
     <div class='toEat task'>
-      <h3>Eat</h3>
+      <h3><i class="fas fa-pizza-slice titles"></i>Eat</h3>
       <div id='toEat'></div>
     </div>
 
     <div class='toBuy task'>
-      <h3>Buy</h3>
+      <h3><i class="fas fa-shopping-cart titles"></i>Buy</h3>
       <div id='toBuy'></div>
     </div>
 

@@ -108,12 +108,12 @@ hr {
   color: lightseagreen;
 }
 
-i {
+.main {
   cursor: pointer;
   transition: 200ms;
 }
 
-i:hover {
+.main:hover {
   color:cyan;
 }
 
@@ -189,4 +189,15 @@ textarea, input {
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+}
+
+img{
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+
+.titles{
+  margin-right: 10px;
 }

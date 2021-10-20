@@ -15,11 +15,11 @@ $(function () {
             $("#todo").val("");
             console.log("MAIN SUBMIT CALL");
             tasks();
-            $("#form").css("display", "block");
+            $("#form").css("display", "flex");
             $(".lds-ring").css("display", "none");
           },
           error: function (err) {
-            $("#form").css("display", "block");
+            $("#form").css("display", "flex");
             $(".lds-ring").css("display", "none");
             console.error(err);
           },

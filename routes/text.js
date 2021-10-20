@@ -27,8 +27,19 @@ module.exports = (db) => {
         const answeredCategory = answer.queryresult.datatypes;
         const plainTextInfo = answerInformation.pods[1].subpods[0].plaintext;
         const answerImg = answerInformation.pods[2].subpods[0].img.src;
+
+        const podsArray = answerInformation.pods[2].subpods;
+    
+   
+        //console.log(answerInformation)
         const category = taskHelper.categorizeMe(answeredCategory);
          //Added to database
+         const formatMe =(text) => {
+          const x = text.split("\n")
+          return x;
+      }
+      console.log(formatMe(plainTextInfo), 'THIS IS IT')
+
         db.query(
           `
    INSERT INTO tasks (user_id, title, category, task_img_url, task_text_info)

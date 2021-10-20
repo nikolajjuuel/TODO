@@ -18,19 +18,24 @@ createTaskElement = function (obj) {
       <header><i class="fas fa-compact-disc main"></i>
         <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
       </header>
+
+      <div>
+      <img src="${obj.task_img_url}" alt="">
+   </div>
+      
       <hr>
       <div class="categories" style="display:none">
         <form class="switch-category" data-task-id=${obj.id}>
-        <button type="submit" name="To watch" value="To watch"><i class="fas fa-compact-disc">
+        <button type="submit" name="To watch" value="To watch"><i class="fas fa-compact-disc specific">
               <p>Watch</p>
             </i></button>
-          <button name="To read" type="submit" value="To read"> <i class="fas fa-book">
+          <button name="To read" type="submit" value="To read"> <i class="fas fa-book specific">
               <p>Read</p>
             </i></button>
-          <button name="To eat" type="submit" value="To eat"><i class="fas fa-pizza-slice">
+          <button name="To eat" type="submit" value="To eat"><i class="fas fa-pizza-slice specific">
               <p>Eat</p>
             </i></button>
-          <button name="To buy" type="submit" value="To buy"><i class="fas fa-shopping-cart">
+          <button name="To buy" type="submit" value="To buy"><i class="fas fa-shopping-cart specific">
               <p>Buy</p>
             </i></button>
         </form>
@@ -66,7 +71,7 @@ const runJquery = () => {
       $(this).siblings(".categories").slideToggle();
     });
     // EVENT for compact-disc icon
-    $(".fas").on("click", function () {
+    $(".main").on("click", function () {
       console.log('DISC EVENT')
       $(this).parent().parent().toggleClass("clicked");
     });
