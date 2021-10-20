@@ -2,13 +2,14 @@
 const renderTasks = function (tasks) {
   console.log("tasks", tasks);
   for (const task in tasks) {
+    console.log('RENDERING TASK')
     createTaskElement(tasks[task]);
   }
 };
 
 //create and distribution of user's tasks
 createTaskElement = function (obj) {
-  console.log(obj);
+  console.log('CREATED TASK EL', obj);
   const $watch = $("#toWatch");
   const $eat = $("#toEat");
   const $read = $("#toRead");
@@ -57,13 +58,16 @@ const runJquery = () => {
   //   $("#form").css("display", "none");
   //   $(".lds-ring").css("display", "inline-block");
   // });
+  console.log('JQUERY FUNC CALL')
   const checkExist = setInterval(function () {
     // change category -> edit -> EVENT
     $(".edit").on("click", function () {
+      console.log('EDIT EVENT')
       $(this).siblings(".categories").slideToggle();
     });
     // EVENT for compact-disc icon
     $(".fas").on("click", function () {
+      console.log('DISC EVENT')
       $(this).parent().parent().toggleClass("clicked");
     });
     // EVENT for delete task
@@ -77,7 +81,7 @@ const runJquery = () => {
           url: `/delete/${id}`, //id = task id
           method: "POST",
           success: function (data) {
-            console.log("&&&&&&&&&&&", id);
+            console.log("&&&&DELETE CALL&&&&&", id);
             tasks();
           },
           error: function (err) {
@@ -100,7 +104,7 @@ const runJquery = () => {
           data: { category: newCategory },
           method: "POST",
           success: function (data) {
-            console.log("@@@@@@@@@@@@ success");
+            console.log("@@@@EDIT CALL@@@@ success");
             tasks();
           },
           error: function (err) {
@@ -111,31 +115,32 @@ const runJquery = () => {
     }
 
     // EVENT for post-it form submit
-    if ($("#form")) {
-      $("#form").submit(function (event) {
-        event.preventDefault();
-        const $newTask = $("#todo").val();
-        console.log("MAIN INPUT", $newTask);
-        $("#form").css("display", "none");
-        $(".lds-ring").css("display", "inline-block");
-        $.ajax({
-          url: "/text",
-          method: "POST",
-          data: { text: $newTask },
-          success: () => {
-            $("#todo").val("");
-            tasks();
-            $("#form").css("display", "block");
-            $(".lds-ring").css("display", "none");
-          },
-          error: function (err) {
-            $("#form").css("display", "block");
-            $(".lds-ring").css("display", "none");
-            console.error(err);
-          },
-        });
-      });
-    }
+  //   if ($("#form")) {
+  //     $("#form").submit(function (event) {
+  //       event.preventDefault();
+  //       const $newTask = $("#todo").val();
+  //       console.log("MAIN INPUT", $newTask);
+  //       $("#form").css("display", "none");
+  //       $(".lds-ring").css("display", "inline-block");
+  //       $.ajax({
+  //         url: "/text",
+  //         method: "POST",
+  //         data: { text: $newTask },
+  //         success: () => {
+  //           $("#todo").val("");
+  //           console.log('MAIN SUBMIT CALL')
+  //           tasks();
+  //           $("#form").css("display", "block");
+  //           $(".lds-ring").css("display", "none");
+  //         },
+  //         error: function (err) {
+  //           $("#form").css("display", "block");
+  //           $(".lds-ring").css("display", "none");
+  //           console.error(err);
+  //         },
+  //       });
+  //     });
+  //   }
     clearInterval(checkExist);
   }, 100); // check every 100ms
 };
@@ -147,13 +152,14 @@ const tasks = () => {
     method: "GET",
     dataType: "json",
     success: function (data) {
-      console.log(data.tasks);
+      console.log("TASKS CALL",data.tasks);
       $(".container").empty();
       renderTasks(data.tasks);
       runJquery();
     },
     error: function (err) {
-      console.err(err);
+      console.error(err);
     },
   });
 };
+
