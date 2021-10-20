@@ -149,3 +149,43 @@ i:hover {
     border-color: white;
   }
 }
+
+
+
+// login page styling
+
+.btn {
+  background-color: #d342c3;
+  margin-right: 1em;
+  padding: 10px;
+  display: flex;
+  transition: 200ms;
+  justify-content: center;
+  color: white;
+  border: none;
+}
+
+h1{
+  margin-right: 10px;
+}
+
+.btn:hover{
+  background-color: #00d3d3;
+
+}
+
+form{
+//  flex-direction: column;
+
+  input{
+      margin-bottom: 10px;
+  }
+}
+
+textarea, input {
+  padding:10px;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
