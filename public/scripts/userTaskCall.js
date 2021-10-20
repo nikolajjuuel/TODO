@@ -1,5 +1,5 @@
 $(function () {
-  const checkExist = setInterval(function () {
+  //const checkExist = setInterval(function () {
     if ($("#form")) {
       $("#form").submit(function (event) {
         event.preventDefault();
@@ -26,7 +26,7 @@ $(function () {
         });
       });
     }
-    clearInterval(checkExist);
-  }, 100); // check every 100ms
+  //   clearInterval(checkExist);
+  // }, 100); // check every 100ms
   tasks();
 });

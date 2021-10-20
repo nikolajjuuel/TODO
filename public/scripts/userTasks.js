@@ -15,7 +15,7 @@ createTaskElement = function (obj) {
   const $read = $("#toRead");
   const $buy = $("#toBuy");
   const $task = $(`<div class="container">
-      <header><i class="fas fa-compact-disc main"></i></i>
+      <header><i class="fas fa-compact-disc main"></i>
         <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
       </header>
       <hr>
@@ -59,7 +59,7 @@ const runJquery = () => {
   //   $(".lds-ring").css("display", "inline-block");
   // });
   console.log('JQUERY FUNC CALL')
-  const checkExist = setInterval(function () {
+  //const checkExist = setInterval(function () {
     // change category -> edit -> EVENT
     $(".edit").on("click", function () {
       console.log('EDIT EVENT')
@@ -72,7 +72,7 @@ const runJquery = () => {
     });
     // EVENT for delete task
     if ($(".fa-times")) {
-      console.log("Exists!");
+      // console.log("Exists!");
 
       $(".fa-times").on("click", function () {
         const id = $(this).prev()[0].getAttribute("data-task-id"); //id = task id
@@ -95,10 +95,14 @@ const runJquery = () => {
     if ($(".switch-category")) {
       $(".switch-category").on("submit", function (e) {
         e.preventDefault(); //prevents refresh
-        const id = $(this).attr("data-task-id"); //task id
+
+
         const newCategory = $(this)
           .find("button[type=submit]:focus")[0]
           .getAttribute("name");
+          console.log("NEW CATEGORY", newCategory);
+
+          const id = $(this).attr("data-task-id"); //task id
         $.ajax({
           url: `/edit/${id}`, //id = task id
           data: { category: newCategory },
@@ -114,35 +118,7 @@ const runJquery = () => {
       });
     }
 
-    // EVENT for post-it form submit
-  //   if ($("#form")) {
-  //     $("#form").submit(function (event) {
-  //       event.preventDefault();
-  //       const $newTask = $("#todo").val();
-  //       console.log("MAIN INPUT", $newTask);
-  //       $("#form").css("display", "none");
-  //       $(".lds-ring").css("display", "inline-block");
-  //       $.ajax({
-  //         url: "/text",
-  //         method: "POST",
-  //         data: { text: $newTask },
-  //         success: () => {
-  //           $("#todo").val("");
-  //           console.log('MAIN SUBMIT CALL')
-  //           tasks();
-  //           $("#form").css("display", "block");
-  //           $(".lds-ring").css("display", "none");
-  //         },
-  //         error: function (err) {
-  //           $("#form").css("display", "block");
-  //           $(".lds-ring").css("display", "none");
-  //           console.error(err);
-  //         },
-  //       });
-  //     });
-  //   }
-    clearInterval(checkExist);
-  }, 100); // check every 100ms
+
 };
 
 // request for user's task
