@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var axios = require("axios");
-var convert = require("xml-js");
+const axios = require("axios");
 const taskHelper = require("../helpers/task");
 
 module.exports = (db) => {
@@ -15,37 +14,27 @@ module.exports = (db) => {
     if (!text) {
       return res.redirect("/");
     }
-    //////////////////////////////////////////////////////////
 
+    const wolfApi = process.env.WOLFAPIKEY;
+    const encode = encodeURIComponent(text);
+    const url = `https://api.wolframalpha.com/v2/query?input=${encode}&output=JSON&appid=${wolfApi}`;
 
-
-    //////////////////////////////////////////////////////////
-    // let config = {
-    //   method: "get",
-    //   url: `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent(
-    //     text
-    //   )}&appid=${process.env.WOLFAPIKEY}`,
-    // };
-    //console.log("2222222", process.env.WOLFAPIKEY);
-
-    const url = `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent(
-      text
-    )}&appid=${process.env.WOLFAPIKEY}`
-    axios.get(url)
-      .then(function (response) {
-        console.log("============================");
-        let answer = convert.xml2js(response.data);
-        console.log("##################################");
-        let answeredCategory = answer.elements[0].attributes.datatypes;
-        console.log("ANSWER", answeredCategory);
-        let category = taskHelper.categorizeMe(answeredCategory);
-        //Added to database
+    axios
+      .get(url)
+      .then(function(response) {
+        const answer = response.data;
+        const answerInformation = answer.queryresult;
+        const answeredCategory = answer.queryresult.datatypes;
+        const plainTextInfo = answerInformation.pods[1].subpods[0].plaintext;
+        const answerImg = answerInformation.pods[2].subpods[0].img.src;
+        const category = taskHelper.categorizeMe(answeredCategory);
+         //Added to database
         db.query(
           `
-   INSERT INTO tasks (user_id, title, category)
-   VALUES ($1, $2, $3);
+   INSERT INTO tasks (user_id, title, category, task_img_url, task_text_info)
+   VALUES ($1, $2, $3, $4, $5);
    `,
-          [id, text, category]
+          [id, text, category, answerImg, plainTextInfo]
         )
           .then((data) => {
             res.redirect("/");
@@ -54,8 +43,8 @@ module.exports = (db) => {
             console.log(err);
           });
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function(error) {
+        console.log(error.message);
       });
   });
   return router;
