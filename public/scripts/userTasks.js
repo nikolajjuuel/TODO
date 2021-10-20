@@ -48,6 +48,7 @@ createTaskElement = function (obj) {
   if (obj.category === "To watch") {
     return $watch.append($task);
   } else if (obj.category === "To eat") {
+
     return $eat.append($task);
   }
   if (obj.category === "To read") {
