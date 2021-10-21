@@ -22,10 +22,8 @@ createTaskElement = function (obj) {
         <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
       </header>
 
-      <div>
+      <div style="display:none">
       <img src="${obj.task_img_url}" alt="">
-      </div>
-      <div>
       <img src="${obj.task_text_info}" alt="">
       </div>
       
@@ -74,6 +72,10 @@ const runJquery = () => {
  // console.log('JQUERY FUNC CALL')
   //const checkExist = setInterval(function () {
   // change category -> edit -> EVENT
+  $(".title").on('click', function(){
+    console.log($(this).parent().next().slideToggle());
+  })
+
   $(".edit").on("click", function () {
   //  console.log('EDIT EVENT')
     $(this).siblings(".categories").slideToggle();
