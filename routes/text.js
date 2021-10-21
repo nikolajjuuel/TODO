@@ -40,14 +40,14 @@ module.exports = (db) => {
           //console.log(answerInformation)
           const category = taskHelper.categorizeMe(answeredCategory);
           //Added to database
-          const formatMe = (text) => {
-            const x = text.split("\n");
-            console.log('TEXT IS', x)
-            const ans = text[0] + '\n' + text[1];
+          // const formatMe = (text) => {
+          //   const x = text.split("\n");
+          //   console.log('TEXT IS',)
+          //   const ans = text[0] + '\n' + text[1];
 
-            return ans;
-          };
-          console.log(formatMe(plainTextInfo), "THIS IS IT");
+          //   return ans;
+          // };
+          // console.log(formatMe(plainTextInfo), "THIS IS IT");
 
           db.query(
             `
