@@ -1,3 +1,7 @@
+h1 {
+    margin-right: 10px;
+}
+
 .btn {
     background-color: #d342c3;
     margin-right: 1em;
@@ -6,29 +10,23 @@
     transition: 200ms;
     justify-content: center;
     color: white;
-}
 
-h1{
-    margin-right: 10px;
-}
-
-.btn:hover{
-    background-color: #00d3d3;
-
-}
-
-form{
-    flex-direction: column;
-
-    input{
-        margin-bottom: 10px;
+    :hover {
+        background-color: #00d3d3;
     }
 }
 
-textarea, input {
-    padding:10px;
-      font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
-      font-style: normal;
-      font-weight: normal;
-      text-decoration: inherit;
-  }
+form {
+    flex-direction: column;
+
+    textarea,
+    input {
+        margin-bottom: 10px;
+
+        padding: 10px;
+        font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+    }
+}

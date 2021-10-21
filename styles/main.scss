@@ -221,24 +221,3 @@ img{
    }
  }
 }
-
-@media only screen and (max-width: 768px) {
-
-  html{
-    background-color: tomato;
-  }
-
-  .container{
-    width: 100%;
-  }
-
-  .categories{
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .task {
-    width: 90%;
-  }
-
-}
