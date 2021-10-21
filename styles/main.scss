@@ -150,11 +150,13 @@ form {
 .fa-times {
   color: black;
   transition: 200ms;
-  :hover {
-    color: firebrick;
-  }
+  cursor: pointer;
+  
 }
 
+.fa-times:hover {
+  color: firebrick;
+}
 .clicked {
   color: white;
   background-color: #ff329a;

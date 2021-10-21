@@ -2,6 +2,10 @@
  
 TODO is a full stack web application built with Node and Express that allows users to create their own TODO list that are auto categorizing.
 
+To create a TODO, type in your task into the `What TODO` input bar and it will automatically be categorized. Sometimes it might not be categorized correctly. However, you can simply change the category from our `Change Category` section below the TODO. 
+
+To remove a task press the `x` in the top right corner of the TODO task.
+
 Additionally users can tag tasks important and retrieve more information about their task with just a click!
 
 
@@ -9,6 +13,7 @@ Additionally users can tag tasks important and retrieve more information about t
 
 !["Login screen"](public/images/login.png)
 !["Marked important"](public/images/marked_important.png)
+!["Change category"](public/images/change-category.png)
 !["More information"](public/images/exampleDropDownAndMarketImpt.png)
 !["Mobile version"](public/images/mobile.png)
 

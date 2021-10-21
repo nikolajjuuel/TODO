@@ -3,6 +3,10 @@ const dbParams = require('../lib/db');
 const router = express.Router();
 
 module.exports = (db) => {
+  router.get("/", (req, res) => {
+    req.session = null;
+    res.render("login");
+  });
 
   router.get("/:id", (req, res) => {
       req.session.user_id = req.params.id;
