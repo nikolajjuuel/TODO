@@ -1,4 +1,5 @@
 $(function () {
+  
   //const checkExist = setInterval(function () {
     if ($("#form")) {
       $("#form").submit(function (event) {

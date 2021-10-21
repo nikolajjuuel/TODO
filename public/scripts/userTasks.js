@@ -1,15 +1,18 @@
+/// styling
+
+
 //  user's tasks
 const renderTasks = function (tasks) {
-  console.log("tasks", tasks);
+  //console.log("tasks", tasks);
   for (const task in tasks) {
-    console.log('RENDERING TASK')
+    //console.log('RENDERING TASK')
     createTaskElement(tasks[task]);
   }
 };
 
 //create and distribution of user's tasks
 createTaskElement = function (obj) {
-  console.log('CREATED TASK EL', obj);
+  //console.log('CREATED TASK EL', obj);
   const $watch = $("#toWatch");
   const $eat = $("#toEat");
   const $read = $("#toRead");
@@ -45,10 +48,11 @@ createTaskElement = function (obj) {
         <div>Change Category</div><i class="far fa-edit"></i>
       </div>
     </div>`);
+
   if (obj.category === "To watch") {
     return $watch.append($task);
-  } else if (obj.category === "To eat") {
-
+  }
+  if (obj.category === "To eat") {
     return $eat.append($task);
   }
   if (obj.category === "To read") {
@@ -64,20 +68,18 @@ const runJquery = () => {
   //   $("#form").css("display", "none");
   //   $(".lds-ring").css("display", "inline-block");
   // });
-  console.log('JQUERY FUNC CALL')
+ // console.log('JQUERY FUNC CALL')
   //const checkExist = setInterval(function () {
   // change category -> edit -> EVENT
   $(".edit").on("click", function () {
-    console.log('EDIT EVENT')
+  //  console.log('EDIT EVENT')
     $(this).siblings(".categories").slideToggle();
   });
   // EVENT for compact-disc icon
 
   $(".main").on("click", function () {
-    //let isTrue = 'true';
-    const $clicked = $(this).parent().parent().toggleClass("clicked");
-    const id = $(this).next()[0].getAttribute("data-task-id"); //id = task id
     const important = $(this)[0].getAttribute('data-task-imp');
+    console.log(important);
 
     let toggleImportant = (toggle) => {
       if (important === 'false') {
@@ -89,13 +91,17 @@ const runJquery = () => {
       }
     }
 
+    const id = $(this).next()[0].getAttribute("data-task-id"); //id = task id
+
     $.ajax({
       url: `/important/${id}`, //id = task id
       data: { important: toggleImportant(important) },
       method: "POST",
       success: function (data) {
-        //console.log("@@@@EDIT CALL@@@@ success");
+        console.log("@@@@EDIT CALL@@@@ success");
+       // tasks();
         tasks();
+
       },
       error: function (err) {
         //  console.error(err);
@@ -121,7 +127,7 @@ const runJquery = () => {
         url: `/delete/${id}`, //id = task id
         method: "POST",
         success: function (data) {
-          console.log("&&&&DELETE CALL&&&&&", id);
+          //console.log("&&&&DELETE CALL&&&&&", id);
           tasks();
         },
         error: function (err) {
@@ -141,7 +147,7 @@ const runJquery = () => {
       const newCategory = $(this)
         .find("button[type=submit]:focus")[0]
         .getAttribute("name");
-      console.log("NEW CATEGORY", newCategory);
+    //  console.log("NEW CATEGORY", newCategory);
 
       const id = $(this).attr("data-task-id"); //task id
       $.ajax({
@@ -149,7 +155,8 @@ const runJquery = () => {
         data: { category: newCategory },
         method: "POST",
         success: function (data) {
-          console.log("@@@@EDIT CALL@@@@ success");
+       //   console.log("@@@@EDIT CALL@@@@ success");
+
           tasks();
         },
         error: function (err) {
@@ -158,9 +165,23 @@ const runJquery = () => {
       });
     });
   }
+  ///styling kinda works ehere
+ // console.log('HELLO WORLD')
+  const container = $('.container').each(function (index, element) {
+  //  console.log('container element', element);
+    const impData = $(this).children().children()[0].getAttribute('data-task-imp');
 
+    console.log('IMPDATA', impData);
+  
+    if (impData === 'true') {
+       $(this).addClass("clicked");
+   //   console.log('TOBESTYLED', styleThis);
+    }
+  
+  });
 
 };
+
 
 // request for user's task
 const tasks = () => {
@@ -169,8 +190,12 @@ const tasks = () => {
     method: "GET",
     dataType: "json",
     success: function (data) {
-      console.log("TASKS CALL", data.tasks);
+     // console.log("TASKS CALL", data.tasks);
       $(".container").empty();
+      $("#toWatch").empty();
+      $("#toEat").empty();
+      $("#toRead").empty();
+      $("#toBuy").empty();
       renderTasks(data.tasks);
       runJquery();
     },
