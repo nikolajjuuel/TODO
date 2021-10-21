@@ -18,10 +18,9 @@ createTaskElement = function (obj) {
   const $read = $("#toRead");
   const $buy = $("#toBuy");
   const $task = $(`<div class="container">
-      <header><i class="fas fa-compact-disc main" data-task-imp=${obj.important}></i>
+      <header><i class="fas fa-thumbtack main" data-task-imp=${obj.important}></i>
         <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
       </header>
-
       <div style="display:none">
       <img src="${obj.task_img_url}" alt="">
       <img src="${obj.task_text_info}" alt="">

@@ -1,5 +1,7 @@
+$secondaryColor: #00d3d3;
+
 ::selection {
-  color: cyan;
+  color: $secondaryColor;
   background: yellow;
 }
 
@@ -9,7 +11,7 @@ a{
 }
 
 a:hover{
-  color: cyan;
+  color: $secondaryColor;
 }
 body {
   display: flex;
@@ -114,7 +116,7 @@ hr {
 }
 
 .main:hover {
-  color:cyan;
+  color: $secondaryColor;
 }
 
 .fas {
@@ -135,13 +137,13 @@ hr {
   background-color: #ff329a;
   box-shadow: #ebc120 1px 1px 7px 0px;
   .main{
-    color: cyan;
+    color: $secondaryColor;
   }
   i {
     color: white;
   }
   i:hover{
-    color: cyan;
+    color: $secondaryColor;
   }
   .fa-times {
     color: white;
@@ -171,7 +173,7 @@ h1{
 }
 
 .btn:hover{
-  background-color: #00d3d3;
+  background-color: $secondaryColor;
 
 }
 
@@ -209,4 +211,13 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.switch-category{
+ button {
+   i:hover{
+    color: $secondaryColor;
+    cursor: pointer;
+   }
+ }
 }
