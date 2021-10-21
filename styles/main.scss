@@ -196,7 +196,7 @@ form {
   cursor: pointer;
 }
 
-.title:hover{
+.title:hover {
   color: $secondaryColor;
 }
 
@@ -214,17 +214,15 @@ form {
 }
 
 @media only screen and (max-width: 768px) {
-  .categories{
+  .categories {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
   }
-  .container{
+  .container {
     width: 100%;
   }
   .task {
     width: 100%;
   }
-
 }

@@ -16,14 +16,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/todoPurple.png"/>
+  <link rel="icon" type="image/png" href="/images/todoPurple.png" />
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/loader.css" type="text/css" />
-  
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/userTasks.js"></script>
@@ -50,45 +50,21 @@
 
   <form id="form">
     <label for="todo"></label>
-    <input required placeholder="what are you thinking?" name="text" type="text" id="todo"></input>
+    <input required placeholder="What TODO?" name="text" type="text" id="todo"></input>
     <input id="submitButton" class="btn" type="submit" value="Post-it!">
   </form>
 
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
   <div class="categories">
     <div class='toWatch task'>
       <h3><i class="fas fa-compact-disc titles"></i>Watch</h3>
       <div id='toWatch'></div>
-      <!-- <div class="container">
-        <header><i class="fas fa-compact-disc main"></i>
-          <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
-        </header>
-        <div>
-           <img src="https://www4f.wolframalpha.com/Calculate/MSP/MSP29741f4iide7e86c6h7h000010f54268dfbb2idf?MSPStoreType=image/gif&s=6" alt="">
-        </div>
-        <hr>
-        <div class="categories" style="display:none">
-          <form class="switch-category" data-task-id=${obj.id}>
-          <button type="submit" name="To watch" value="To watch"><i class="fas fa-compact-disc">
-                <p>Watch</p>
-              </i></button>
-            <button name="To read" type="submit" value="To read"> <i class="fas fa-book">
-                <p>Read</p>
-              </i></button>
-            <button name="To eat" type="submit" value="To eat"><i class="fas fa-pizza-slice">
-                <p>Eat</p>
-              </i></button>
-            <button name="To buy" type="submit" value="To buy"><i class="fas fa-shopping-cart">
-                <p>Buy</p>
-              </i></button>
-          </form>
-  
-        </div>
-        <div class="edit">
-          <div>Change Category</div><i class="far fa-edit"></i>
-        </div>
-      </div> -->
     </div>
 
     <div class='toRead task'>
