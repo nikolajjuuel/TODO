@@ -5,14 +5,27 @@ $secondaryColor: #00d3d3;
   background: yellow;
 }
 
-a{
+h1 {
+  margin-right: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+a {
   text-decoration: none;
   transition: 200ms;
 }
 
-a:hover{
+a:hover {
   color: $secondaryColor;
 }
+
+nav {
+  width: 100%;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -25,21 +38,42 @@ body {
   background-color: #f8dd74;
 }
 
+img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+hr {
+  margin-bottom: 0px;
+}
+
+input {
+  margin-right: 1em;
+}
+
+form {
+  display: flex;
+  margin-bottom: 4em;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar-brand {
   font-family: "Bungee Inline", cursive;
   font-size: 2em;
   color: #d342c3;
 }
-.nav {
-  display: flex;
-  justify-content: space-between;
-}
-nav {
-  width: 100%;
-}
-h1 h2 {
-  text-align: center;
-}
+
 .categories {
   display: flex;
   justify-content: space-around;
@@ -59,13 +93,6 @@ h1 h2 {
     background: none;
     font-size: 14px;
   }
-}
-input {
-  margin-right: 1em;
-}
-form {
-  display: flex;
-  margin-bottom: 4em;
 }
 
 .task {
@@ -96,27 +123,23 @@ form {
   align-items: baseline;
   transition: 200ms;
   cursor: pointer;
+  :hover {
+    color: lightseagreen;
+  }
 }
-hr {
-  margin-bottom: 0px;
-}
+
 .user-info {
   color: #d342c3;
   font-size: 2em;
   font-family: "Bungee Inline", cursive;
 }
 
-.edit:hover {
-  color: lightseagreen;
-}
-
 .main {
   cursor: pointer;
   transition: 200ms;
-}
-
-.main:hover {
-  color: $secondaryColor;
+  :hover {
+    color: $secondaryColor;
+  }
 }
 
 .fas {
@@ -126,23 +149,22 @@ hr {
 .fa-times {
   color: black;
   transition: 200ms;
-}
-
-.fa-times:hover {
-  color: firebrick;
+  :hover {
+    color: firebrick;
+  }
 }
 
 .clicked {
   color: white;
   background-color: #ff329a;
   box-shadow: #ebc120 1px 1px 7px 0px;
-  .main{
+  .main {
     color: $secondaryColor;
   }
   i {
     color: white;
   }
-  i:hover{
+  i:hover {
     color: $secondaryColor;
   }
   .fa-times {
@@ -153,10 +175,6 @@ hr {
   }
 }
 
-
-
-// login page styling
-
 .btn {
   background-color: #d342c3;
   margin-right: 1em;
@@ -166,58 +184,30 @@ hr {
   justify-content: center;
   color: white;
   border: none;
-}
-
-h1{
-  margin-right: 10px;
-}
-
-.btn:hover{
-  background-color: $secondaryColor;
-
-}
-
-form{
-//  flex-direction: column;
-
-  input{
-      margin-bottom: 10px;
-  }
-}
-
-textarea, input {
-  padding:10px;
-    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-}
-
-img{
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-}
-
-.title{
   cursor: pointer;
 }
 
-.titles{
+.btn:hover {
+  background-color: $secondaryColor;
+}
+
+.title {
+  cursor: pointer;
+}
+
+.title:hover{
+  color: $secondaryColor;
+}
+
+.titles {
   margin-right: 10px;
 }
 
-.nav-link{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.switch-category{
- button {
-   i:hover{
-    color: $secondaryColor;
-    cursor: pointer;
-   }
- }
+.switch-category {
+  button {
+    i:hover {
+      color: $secondaryColor;
+      cursor: pointer;
+    }
+  }
 }
