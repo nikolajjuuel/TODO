@@ -3,6 +3,38 @@ const router = express.Router();
 const axios = require("axios");
 const taskHelper = require("../helpers/task");
 
+const descriptionFinder =  (info) =>{
+  const howManyPods = Number(info.pods.length);
+
+  console.log('how many:', howManyPods)
+  const defaultImg3 = info.pods[1].subpods[0].img.src;
+  if (howManyPods > 2){
+    for (let i = 0; i < howManyPods; i++){
+      let infoTitles = info.pods[i];
+      //console.log('answers titles:',answerTitles.title);
+      if (infoTitles.title === 'Basic movie information'){
+        //console.log('subpods',answerTitles.subpods[0].img.src)
+        return  infoTitles.subpods[0].img.src;
+      }
+      if (infoTitles.title === 'Nutrition facts'){
+        //console.log('subpods',answerTitles.subpods[0].img.src)
+        return  infoTitles.subpods[0].img.src;
+      }
+      if (infoTitles.title === 'Basic properties'){
+        //console.log('subpods',answerTitles.subpods[0].img.src)
+        return  infoTitles.subpods[0].img.src;
+      }
+      if (infoTitles.title === 'Inventor'){
+        //console.log('subpods',answerTitles.subpods[0].img.src)
+        return  infoTitles.subpods[0].img.src;
+      }
+    }
+  }
+  return defaultImg3;
+}
+
+
+
 module.exports = (db) => {
   router.post("/", (req, res) => {
     //checking to make sure someone is logged in
@@ -23,12 +55,13 @@ module.exports = (db) => {
       const answer = response.data;
       const answerInformation = answer.queryresult;
       const answeredCategory = answer.queryresult.datatypes;
-      const plainTextInfo = answerInformation.pods[1].subpods[0].plaintext;
+      const plainTextInfo = descriptionFinder(answerInformation);
       console.log('SEARCH INFO', plainTextInfo)
+      const serpstackApi = process.env.SEPRSTACKKEY
       //const answerImg = answerInformation.pods[2].subpods[0].img.src;
       axios
         .get(
-          `https://serpapi.com/search.json?engine=google&q=${encode}&google_domain=google.com&tbm=isch&ijn=0&api_key=53d313b64629e7fcbbfaebc79b87ec0a24cf8c245e839fe561dc461d5c5df23d`
+          `https://serpapi.com/search.json?engine=google&q=${encode}&google_domain=google.com&tbm=isch&ijn=0&api_key=${serpstackApi}`
         )
         .then((resp) => {
           const answer = resp;
