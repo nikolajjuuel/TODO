@@ -2,36 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const taskHelper = require("../helpers/task");
+const descriptionImage = require("../helpers/descriptionFinder")
 
-const descriptionFinder =  (info) =>{
-  const howManyPods = Number(info.pods.length);
 
-  console.log('how many:', howManyPods)
-  const defaultImg3 = info.pods[1].subpods[0].img.src;
-  if (howManyPods > 2){
-    for (let i = 0; i < howManyPods; i++){
-      let infoTitles = info.pods[i];
-      //console.log('answers titles:',answerTitles.title);
-      if (infoTitles.title === 'Basic movie information'){
-        //console.log('subpods',answerTitles.subpods[0].img.src)
-        return  infoTitles.subpods[0].img.src;
-      }
-      if (infoTitles.title === 'Nutrition facts'){
-        //console.log('subpods',answerTitles.subpods[0].img.src)
-        return  infoTitles.subpods[0].img.src;
-      }
-      if (infoTitles.title === 'Basic properties'){
-        //console.log('subpods',answerTitles.subpods[0].img.src)
-        return  infoTitles.subpods[0].img.src;
-      }
-      if (infoTitles.title === 'Inventor'){
-        //console.log('subpods',answerTitles.subpods[0].img.src)
-        return  infoTitles.subpods[0].img.src;
-      }
-    }
-  }
-  return defaultImg3;
-}
 
 
 
@@ -55,7 +28,7 @@ module.exports = (db) => {
       const answer = response.data;
       const answerInformation = answer.queryresult;
       const answeredCategory = answer.queryresult.datatypes;
-      const plainTextInfo = descriptionFinder(answerInformation);
+      const plainTextInfo = descriptionImage.descriptionFinder(answerInformation);
       console.log('SEARCH INFO', plainTextInfo)
       const serpstackApi = process.env.SEPRSTACKKEY
       //const answerImg = answerInformation.pods[2].subpods[0].img.src;
