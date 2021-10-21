@@ -24,7 +24,10 @@ createTaskElement = function (obj) {
 
       <div>
       <img src="${obj.task_img_url}" alt="">
-   </div>
+      </div>
+      <div>
+      <img src="${obj.task_text_info}" alt="">
+      </div>
       
       <hr>
       <div class="categories" style="display:none">
