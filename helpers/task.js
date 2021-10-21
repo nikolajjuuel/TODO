@@ -1,9 +1,5 @@
 module.exports = {
   categorizeMe(text) {
-
-    console.log('text>>>>>>>>>', text);
-
-
     if (text.toLowerCase().includes("food")) {
       return "To eat";
     } else if (text.toLowerCase().includes("movie")) {
