@@ -15,7 +15,7 @@ createTaskElement = function (obj) {
   const $read = $("#toRead");
   const $buy = $("#toBuy");
   const $task = $(`<div class="container">
-      <header><i class="fas fa-compact-disc main"></i>
+      <header><i class="fas fa-compact-disc main" data-task-imp=${obj.important}></i>
         <div data-task-id=${obj.id} class="title">${obj.title}</div><i class="fas fa-times"></i>
       </header>
 
@@ -66,63 +66,98 @@ const runJquery = () => {
   // });
   console.log('JQUERY FUNC CALL')
   //const checkExist = setInterval(function () {
-    // change category -> edit -> EVENT
-    $(".edit").on("click", function () {
-      console.log('EDIT EVENT')
-      $(this).siblings(".categories").slideToggle();
-    });
-    // EVENT for compact-disc icon
-    $(".main").on("click", function () {
-      console.log('DISC EVENT')
-      $(this).parent().parent().toggleClass("clicked");
-    });
-    // EVENT for delete task
-    if ($(".fa-times")) {
-      // console.log("Exists!");
+  // change category -> edit -> EVENT
+  $(".edit").on("click", function () {
+    console.log('EDIT EVENT')
+    $(this).siblings(".categories").slideToggle();
+  });
+  // EVENT for compact-disc icon
 
-      $(".fa-times").on("click", function () {
-        const id = $(this).prev()[0].getAttribute("data-task-id"); //id = task id
+  $(".main").on("click", function () {
+    //let isTrue = 'true';
+    const $clicked = $(this).parent().parent().toggleClass("clicked");
+    const id = $(this).next()[0].getAttribute("data-task-id"); //id = task id
+    const important = $(this)[0].getAttribute('data-task-imp');
 
-        $.ajax({
-          url: `/delete/${id}`, //id = task id
-          method: "POST",
-          success: function (data) {
-            console.log("&&&&DELETE CALL&&&&&", id);
-            tasks();
-          },
-          error: function (err) {
-            console.error(err);
-          },
-        });
-      });
+    let toggleImportant = (toggle) => {
+      if (important === 'false') {
+        return 'true';
+      }
+      if (important === 'true') {
+        return 'false';
+
+      }
     }
 
-    // EVENT for particular category submit while changing category
-    if ($(".switch-category")) {
-      $(".switch-category").on("submit", function (e) {
-        e.preventDefault(); //prevents refresh
+    $.ajax({
+      url: `/important/${id}`, //id = task id
+      data: { important: toggleImportant(important) },
+      method: "POST",
+      success: function (data) {
+        //console.log("@@@@EDIT CALL@@@@ success");
+        tasks();
+      },
+      error: function (err) {
+        //  console.error(err);
+      },
+    });
+  });
 
 
-        const newCategory = $(this)
-          .find("button[type=submit]:focus")[0]
-          .getAttribute("name");
-          console.log("NEW CATEGORY", newCategory);
 
-          const id = $(this).attr("data-task-id"); //task id
-        $.ajax({
-          url: `/edit/${id}`, //id = task id
-          data: { category: newCategory },
-          method: "POST",
-          success: function (data) {
-            console.log("@@@@EDIT CALL@@@@ success");
-            tasks();
-          },
-          error: function (err) {
-            console.error(err);
-          },
-        });
+
+
+
+
+
+  // EVENT for delete task
+  if ($(".fa-times")) {
+    // console.log("Exists!");
+
+    $(".fa-times").on("click", function () {
+      const id = $(this).prev()[0].getAttribute("data-task-id"); //id = task id
+
+      $.ajax({
+        url: `/delete/${id}`, //id = task id
+        method: "POST",
+        success: function (data) {
+          console.log("&&&&DELETE CALL&&&&&", id);
+          tasks();
+        },
+        error: function (err) {
+          console.error(err);
+        },
       });
-    }
+    });
+  }
+
+  // EVENT for particular category submit while changing category
+
+  if ($(".switch-category")) {
+    $(".switch-category").on("submit", function (e) {
+      e.preventDefault(); //prevents refresh
+
+
+      const newCategory = $(this)
+        .find("button[type=submit]:focus")[0]
+        .getAttribute("name");
+      console.log("NEW CATEGORY", newCategory);
+
+      const id = $(this).attr("data-task-id"); //task id
+      $.ajax({
+        url: `/edit/${id}`, //id = task id
+        data: { category: newCategory },
+        method: "POST",
+        success: function (data) {
+          console.log("@@@@EDIT CALL@@@@ success");
+          tasks();
+        },
+        error: function (err) {
+          console.error(err);
+        },
+      });
+    });
+  }
 
 
 };
@@ -134,7 +169,7 @@ const tasks = () => {
     method: "GET",
     dataType: "json",
     success: function (data) {
-      console.log("TASKS CALL",data.tasks);
+      console.log("TASKS CALL", data.tasks);
       $(".container").empty();
       renderTasks(data.tasks);
       runJquery();

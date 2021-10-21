@@ -57,6 +57,8 @@ const tasksRoutes = require("./routes/tasks");
 const textRoutes = require("./routes/text");
 const deleteRoutes = require("./routes/deleteTask");
 const editRoutes = require("./routes/editTask");
+const editImportant = require("./routes/important");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -64,6 +66,8 @@ app.use("/api/tasks", tasksRoutes(db));
 app.use("/text", textRoutes(db));
 app.use("/delete", deleteRoutes(db));
 app.use("/edit", editRoutes(db));
+app.use("/important", editImportant(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
