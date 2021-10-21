@@ -7,6 +7,7 @@ $secondaryColor: #00d3d3;
 
 h1 {
   margin-right: 10px;
+  text-align: center;
 }
 
 h2 {
@@ -210,4 +211,20 @@ form {
       cursor: pointer;
     }
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .categories{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .container{
+    width: 100%;
+  }
+  .task {
+    width: 100%;
+  }
+
 }
