@@ -8,6 +8,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     //making sure someone is logged in
     if (req.session.user_id === undefined) {
+      res.redirect("/login/1")
       return res.status(400).send("Need to login first");
     }
 
