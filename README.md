@@ -8,6 +8,8 @@ To remove a task press the `x` in the top right corner of the TODO task.
 
 Additionally users can tag tasks important and retrieve more information about their task with just a click!
 
+Try it for yourself [here!](https://lighthouse-todo.herokuapp.com/)
+
 
 ## Final Product 
 
